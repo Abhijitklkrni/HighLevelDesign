@@ -118,12 +118,13 @@ If location is shared well and good or else through
 -  Write Latency increases
 - Cache is not of same size as DB  , will have to keep kicking out the old data - loads of cache eviction as we are trying to write everything
 Pros
-1. Data consistency
-2. For Read heavy system and less writes ( Twitter tweet, In shorts). 
-3. Read will speed up
+- Data consistency
+- For Read heavy system and less writes ( Twitter tweet, In shorts). 
+- Read will speed up
+
 
 2. WRITE BACK CACHE
-- Client doesnt wait for the cache to DB copy
+- Client doesn't wait for the cache to DB copy
 ![Screenshot 2024-02-23 at 1.10.17 AM.png](..%2F..%2F..%2F..%2F..%2F..%2F..%2Fvar%2Ffolders%2F7q%2Fkh8lx6c56sjchhvswcts09dm0000gn%2FT%2FTemporaryItems%2FNSIRD_screencaptureui_t6gMKr%2FScreenshot%202024-02-23%20at%201.10.17%E2%80%AFAM.png)
 
 Pro
