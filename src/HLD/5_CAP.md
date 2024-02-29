@@ -60,3 +60,31 @@ Minimise network partitioning , but cant be zero
 
 ##### MASTER SLAVE REPLICATION
 ![Screenshot 2024-03-01 at 1.45.14 AM.png](resources%2FCAP%2FScreenshot%202024-03-01%20at%201.45.14%E2%80%AFAM.png)
+
+-![Screenshot 2024-03-01 at 1.56.13 AM.png](resources%2FCAP%2FScreenshot%202024-03-01%20at%201.56.13%E2%80%AFAM.png)
+- ![Screenshot 2024-03-01 at 1.56.39 AM.png](resources%2FCAP%2FScreenshot%202024-03-01%20at%201.56.39%E2%80%AFAM.png)
+
+- Why do we need replication?
+##### To achieve fault tolerance 
+##### Redundancy  
+
+##### Added advantage 
+- Scaling up reads
+
+### MASTER SLAVE REPLICATION STRATEGIES
+1. Master slave - High Availability but weak consistency - Least Latency
+- ![Screenshot 2024-03-01 at 1.58.52 AM.png](resources%2FCAP%2FScreenshot%202024-03-01%20at%201.58.52%E2%80%AFAM.png)
+- ![Screenshot 2024-03-01 at 2.00.22 AM.png](resources%2FCAP%2FScreenshot%202024-03-01%20at%202.00.22%E2%80%AFAM.png)
+- SPLUNK is an example - Logs (Weak consistency)
+
+2. Master slave - High Availability but eventual consistent - slightly more latency
+- When written to master, we also try to write on all slaves but the response is returned to client once the QUORUM(majority) is attended in slaves. (Decided no. of slaves write successfully).
+- Now even if Master dies, copy is available with Slaves
+- QUORUM , Gossip Protocol: Slaves talk to each other to sync data
+![Screenshot 2024-03-01 at 2.07.37 AM.png](resources%2FCAP%2FScreenshot%202024-03-01%20at%202.07.37%E2%80%AFAM.png)
+- Example - FB Comments
+
+3. Master slave - Weak Availability , Strongly consistent - High latency
+- write to Master and all the slaves then return the response
+- How Weak Availability ? Even if one slave is having network partitioning, Master will not be able to take the write request
+- Banking - withdrawal of money
