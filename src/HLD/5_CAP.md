@@ -36,24 +36,21 @@ Minimise network partitioning , but cant be zero
 ##### SPANNER DB - GOOGLE
 - Propriety hardware
 - super redundant network cables ? many connected cable, if one cable is not ablt to tranfer data , use other route
-- ![Screenshot 2024-03-01 at 12.43.08 AM.png](resources%2FCAP%2FScreenshot%202024-03-01%20at%2012.43.08%E2%80%AFAM.png)
-
+![Screenshot 2024-03-01 at 1.17.56 AM.png](resources%2FCAP%2FScreenshot%202024-03-01%20at%201.17.56%E2%80%AFAM.png)
 ### Consistency Spectrum CAP - C stands for Strong Consistency
-![Screenshot 2024-03-01 at 12.43.08 AM.png](resources%2FCAP%2FScreenshot%202024-03-01%20at%2012.43.08%E2%80%AFAM.png)
-
+![Screenshot 2024-03-01 at 1.26.39 AM.png](resources%2FCAP%2FScreenshot%202024-03-01%20at%201.26.39%E2%80%AFAM.png)
 ### Availability Spectrum 
 - Double 9 availability = 99% availability
 - Triple 9 availability  = 99.9% available, downtime ~ 9hours/ year
 - Four 9 availability = 99.99% available, downtime ~ 1hr / year
 
 ##### PACELC - extension of CAP 
--  ![Screenshot 2024-03-01 at 12.43.08 AM.png](resources%2FCAP%2FScreenshot%202024-03-01%20at%2012.43.08%E2%80%AFAM.png)
+- ![Screenshot 2024-03-01 at 1.35.28 AM.png](resources%2FCAP%2FScreenshot%202024-03-01%20at%201.35.28%E2%80%AFAM.png)
 - E - Even otherwise
 - L - Latency
 - C - Consistency
 - There is always a trade off between Latency and Consistency, if we want consistency(write at multiple places), Latency will increase
-- ![Screenshot 2024-03-01 at 12.43.08 AM.png](resources%2FCAP%2FScreenshot%202024-03-01%20at%2012.43.08%E2%80%AFAM.png)
-
+![Screenshot 2024-03-01 at 1.37.16 AM.png](resources%2FCAP%2FScreenshot%202024-03-01%20at%201.37.16%E2%80%AFAM.png)
 #### Storage Layer
 - Archival /cold storage
 - Sharding (dividing data)
@@ -62,5 +59,4 @@ Minimise network partitioning , but cant be zero
 ### REPLICATION
 
 ##### MASTER SLAVE REPLICATION
-- ![Screenshot 2024-03-01 at 12.43.08 AM.png](resources%2FCAP%2FScreenshot%202024-03-01%20at%2012.43.08%E2%80%AFAM.png)
-
+![Screenshot 2024-03-01 at 1.45.14 AM.png](resources%2FCAP%2FScreenshot%202024-03-01%20at%201.45.14%E2%80%AFAM.png)
