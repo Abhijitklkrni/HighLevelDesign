@@ -87,4 +87,6 @@ Minimise network partitioning , but cant be zero
 3. Master slave - Weak Availability , Strongly consistent - High latency
 - write to Master and all the slaves then return the response
 - How Weak Availability ? Even if one slave is having network partitioning, Master will not be able to take the write request
-- Banking - withdrawal of money
+- - Banking - withdrawal of money
+![Screenshot 2024-03-01 at 2.28.12 AM.png](resources%2FCAP%2FScreenshot%202024-03-01%20at%202.28.12%E2%80%AFAM.png)
+![Screenshot 2024-03-01 at 2.29.05 AM.png](resources%2FCAP%2FScreenshot%202024-03-01%20at%202.29.05%E2%80%AFAM.png)
