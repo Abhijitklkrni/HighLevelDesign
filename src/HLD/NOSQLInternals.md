@@ -38,8 +38,7 @@
 - T(4) - 200:Neelam Singh
 - 200 was Kumarravel in RAM before updating it to Neelam Singh
 - As RAM is key value we directly change the value of 200 , but secondary will be WAL
-![Screenshot 2024-03-05 at 9.58.47 PM.png](..%2F..%2F..%2F..%2F..%2F..%2F..%2Fvar%2Ffolders%2F7q%2Fkh8lx6c56sjchhvswcts09dm0000gn%2FT%2FTemporaryItems%2FNSIRD_screencaptureui_sb7bvx%2FScreenshot%202024-03-05%20at%209.58.47%E2%80%AFPM.png)
-
+![Screenshot 2024-03-06 at 12.28.59 AM.png](resources%2FNOSQLInternals%2FScreenshot%202024-03-06%20at%2012.28.59%E2%80%AFAM.png)
 - Any changes done on 3rd file doesn't affect 1 and 2
 - If in case of power cut, RAM data is lost. RAM file can be recreated using Latest file
 - Once RAM file has reached 100MB, Secondary memory file would be greater than 100MB because of the duplicates as its WAL.
