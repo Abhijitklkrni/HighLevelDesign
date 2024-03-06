@@ -98,7 +98,7 @@
 
 ![Screenshot 2024-03-06 at 12.25.00 AM.png](resources%2FNOSQLInternals%2FScreenshot%202024-03-06%20at%2012.25.00%E2%80%AFAM.png)
 
-
+[NOSQLInternals.pdf](resources%2FNOSQLInternals%2FNOSQLInternals.pdf)
 
 
 
