@@ -34,6 +34,7 @@
      - Update Points (MatchId, Map<playerId,Map<points,Reason>>)
    
    - Team DB sharded on userId
+   - App server Cache for live points of famous matches 5matches
    - Have Cache for live points of famous matches -  5matches, 100M users,10 teams = 5MB * 10^5 ~= 500GB
    - 
 
