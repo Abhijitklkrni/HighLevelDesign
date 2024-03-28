@@ -30,7 +30,7 @@ Gateway (Reverse proxy)
 - First point of contact to outside world
 - route to correct machine
 - block bad actors (not from blocked ip, bots)
-- does not do any computation
+- does not do any computation(traffic filtering, rate limiting, etc.)
 
 SPOF ? Gateways follows Active and passive gatewaing 
 - If a active gateway goes down ,passive ones takes over
