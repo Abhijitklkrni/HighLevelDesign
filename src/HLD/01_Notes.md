@@ -25,3 +25,12 @@ The best approach depends on various factors including the nature of your applic
 4. **Client Complexity:** Offloading uploads to clients may add complexity to client-side code, especially if handling large files or dealing with unreliable network connections.
 
 Ultimately, the best approach depends on your specific requirements and constraints. It's essential to carefully evaluate the trade-offs and consider factors such as performance, scalability, security, and ease of implementation before deciding on an approach. Additionally, consulting with your client to understand their preferences and requirements can help inform your decision.
+
+
+Web sockets vs WebRTC
+- TCP for web sockets
+- NOt ok if anything misses out (Chat)
+
+- UDP for WebRTC
+- Ok even if I miss 1frame in 30fps of opponent movement (Game)
+
