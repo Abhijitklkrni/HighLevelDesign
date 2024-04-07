@@ -207,6 +207,91 @@ AMAZING CALCULATION FOR QUAD TREE - 1.50
 
 
 
+## QUAD TREES
+- Save all places of interest in a table
+  - place id
+  - name
+  - type
+  - lat
+  - long
+  - desc
+  - **LEAF ID**
+
+Save Quad tree info
+- leafId
+- left top lat,long
+- left bottom lat,long
+- right top lat,long
+- right bottom lat,long
+
+LEAF ID??  All the places of interest will be stored in the Quad tree
+- Quad tree is formed by dividing the whole world recursively into 4 parts until the number of places of interest is less than 100
+- This forms as a tree like structure, root being the whole world and children as 4 parts after division
+- Ultimately the places of interest will be stored in the leaf nodes, that's the lead id
+
+Given a point (lat, long) , how to find the leaf id?
+- Starting from the root node, do (x1+x2)/2,(y1+y2)/2 for the current node mid-point
+- After getting the mid-point now we can decide which quadrant to move 
+- Ex: if x of the point is less than mid points x, then its left side. on checking y the same way you go up or down
+- If the node has more children go deeper until you find the leaf node
+ 
+#### After finding the leaf node id, we can find all the places of interest from that node , rank and respond back
+
+What if we needed more places of interest?
+- Check the surrounding leaf nodes as well. How? go to the current leaf left top/bottom and subtract some small number to land on left neighbour and do the same for rest 
+
+
+#### What if we want to add new place?
+- Get the leaf id of the new place using its lat long
+- Check if after adding the places are more than 100 in the leaf
+- No?  Add the place in the places table with the leaf id.. no more changes required in the quad tree.
+- YES? Divide the quad tree into 4 children and for 101 places decide the lead node ids and update the places table
+
+#### What if we want to Delete a place?
+- Delete the place from the table
+- Check the parent of the place ka leaf node, if after deleting sum of places in its child nodes is less than 100, merge them and update the places leaf cell id
+
+#### Place moves from one place to another
+- Do delete and add
+
+#### Storage requirements above
+
+
+### UBER
+
+- The grids won't be divided based on no. of drivers in it as we discussed previously
+- The grid size will be decided based on the historical data, analysis and time of the day 
+- Grid resizing may happen every 4hours
+- For example, morning people tend to go the office, school and other places from their home. so if the drivers are concentrated near societies - its ok and similarly during evening people go from office to home
+- Initialize the QUAD TREE with the current location of the drivers
+- Driver location keeps changing every second - DON'T UPDATE THE QUAD TREES
+- Maintain a DB like CASSANDRA - good for frequent writes and timestamp based entries to keep track of all locations received from Driver client
+- Maintain a cache like REDIS to maintain only the Current location
+- Everytime we get a new location of the driver , enter in the cassandra db --> Check with the current location in the REDIS with some threshold, only if significant moment is there then update the QUAD TREE
+- Update the QUAD tree means only change the driver's leaf id
+- WHEN EVER A DRIVER REQUEST COMES CHECK THE DRIVERS IN THE CURRENT LEAF ID AND ITS SURROUNDINGS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
