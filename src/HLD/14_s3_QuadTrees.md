@@ -205,6 +205,22 @@ AMAZING CALCULATION FOR QUAD TREE - 1.50
 ![Screenshot 2024-03-10 at 3.19.13 PM.png](resources%2FUberCaseStudy%2FScreenshot%202024-03-10%20at%203.19.13%E2%80%AFPM.png)
 
 
+## S3 or HDFS
+- Distributed file store
+- Uses 2 types of nodes name node and data node
+- Name node stores the metadata of the files
+- Data nodes stores the actual data in chunks
+
+##### UPLOAD FLOW
+- Client -> HDFS CLIENT -> HDFS SERVER
+- Client is uploading data continuously to the HDFS client
+- For the first time HDFS Client requests the HDFS server for the chunk size(HDFS 1.0 - 64MB, HDFS 2.0 - 128MB)
+- As and when the HDFS client receives data of one chunk size, it informs the server chunk ready
+- Server responds back with the server location where the chunk needs to be stored
+- HDFS name nodes maintain 2 types of tables
+## METADATA - Inside Name node
+![Screenshot 2024-03-09 at 9.14.15 PM.png](resources%2FS3_QuadTrees%2FScreenshot%202024-03-09%20at%209.14.15%E2%80%AFPM.png)
+
 
 
 ## QUAD TREES
