@@ -8,7 +8,6 @@
 
 - HTTP/3 is faster than HTTP/2 because it uses QUIC protocol which is faster than TCP and uses UDP instead of TCP and uses multiplexing and uses 0-RTT and uses connection migration and uses flow control and uses congestion control and uses forward error correction.
 
-- 
 ![Screenshot 2024-07-25 at 10.51.24 PM.png](images%2FScreenshot%202024-07-25%20at%2010.51.24%E2%80%AFPM.png)
 
 ![Screenshot 2024-07-25 at 10.52.02 PM.png](images%2FScreenshot%202024-07-25%20at%2010.52.02%E2%80%AFPM.png)
