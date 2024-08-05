@@ -1,0 +1,1 @@
+- Map<Boolean,List<>>  map = PartitioningBy(PREDICATE)
