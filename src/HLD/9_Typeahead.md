@@ -58,3 +58,39 @@ QPS helps me decide on # of App servers required
 
 
 ![Screenshot 2024-03-05 at 12.39.16 AM.png](resources%2FTypeaheadSystem%2FScreenshot%202024-03-05%20at%2012.39.16%E2%80%AFAM.png)
+
+
+![Screenshot 2024-08-08 at 9.57.39 PM.png](resources%2FTypeaheadSystem%2FScreenshot%202024-08-08%20at%209.57.39%E2%80%AFPM.png)
+
+If I get a search on Michelle, increment frequency in the left table and 
+for each character substring  mic,mich,miche,michel,michell,michell,michelle - check the right table if their top 5 suggestions will have to be reshuffled as 
+top 5 suggestions are based on frequency of the search in the left table
+
+- right table has suggestions with their frequency
+
+- As writes are very frequent the above will be difficult
+
+- we somehow have to manage high writes
+- Message Queue - Kafka
+- **Threshold Approach**
+  - If the frequency of the search is more than 10000, then only update the right table
+  - after 10001,20001,30001 only update the right table
+  - We are ok with eventual consistency
+
+- HOW ABOUT SCHEDULED JOB? BAD IDEA :(
+  - Every 5 mins, update the right table
+  - But this will not be real time
+  - If the search is very frequent, then the suggestions will not be updated in real time
+
+
+- Client side cache (Personal top 5 suggestions)
+- App server cache (Global top 5 suggestions) - For popular substrings of popular searches
+
+
+
+
+
+
+
+
+
