@@ -112,12 +112,19 @@ NOOB Mistake
 PERSISTENCE OR STOP AUTO RESTART
 
 **REDIS value DATASTRUCTURES**
-- KEY : STRING 
+- KEY : STRING (512 MB only)
   - Binary safe string - sometimes when we read a file we see funny chinese like characters, it because of encoding and decoding in different formats(UTF8)
-
+  - Any string is safe 
+  - If keys are long , retrieval will be longer
   
+
 - VALUES
-  - 
+  - String
+  - List : LinkedList (mostly doubly)
+  - Set
+  - Sorted Set( value is associated with some score)
+  - Hash (key value)
+  - Stream -
 
 
 
