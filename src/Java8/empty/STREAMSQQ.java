@@ -128,21 +128,26 @@ public class STREAMSQQ {
                 Write a Java 8 program to find the sum of all digits of a given number.""";
         //   System.out.println(lst);
         //  lst.stream().max(Comparator.comparing(Integer::intValue)).map(a->a*2).ifPresent(System.out::println);
-
-
+        System.out.println("--------------------------------------------------------;");
+        System.out.println(Optional.ofNullable(null).stream().mapToInt(i -> (int)i).sum());
+        //0
+        //System.out.println("--------------------------------------------------------;");
         String s14 = """
                 Write a Java 8 program to find the second largest number in an integer array.""";
-        // System.out.println(lst.stream().sorted(Comparator.reverseOrder()).limit(2).toList().get(1));
+        // System.out.println(lst.stream().sorted(Comparator.reverseOrder()).limit(2).collect(Collectors.toCollection(LinkedList::new)).get(1));
 
         String s15 = """
                 Sort a list of strings according to the increasing order of their length""";
+        final List<String> strs1 = new ArrayList<>();
+        strs1.add("abas");strs1.add("aaefa");strs1.add("aaxyz");strs1.add("     k    ");
+                //Arrays.asList("abas","","","","","","","","","","","","","","","","","","","","","","","","","","","","aaefa","aaxyz");
 
-        //strs.stream().sorted(Comparator.comparing(String::length).thenComparing(String::compareTo).reversed()).forEach(System.out::println);
+        //strs1.stream().map(s22->s22.trim().toUpperCase()).sorted(Comparator.comparing(String::length).reversed().thenComparing(String::compareTo)).forEach(System.out::println);
 
 
         String s16 = """
                 Write a Java 8 program to find the sum and average of all elements in an integer array.""";
-        //System.out.println(lst.stream().mapToInt(Integer::intValue).summaryStatistics());
+        System.out.println(lst.stream().mapToInt(i -> i).summaryStatistics());
 
 
         String s17 = """
@@ -218,6 +223,8 @@ public class STREAMSQQ {
                 new Order(2, Arrays.asList(new Item("Item3", 30), new Item("Item4", 40))),
                 new Order(3, Arrays.asList(new Item("Item5", 50), new Item("Item6", 60)))
         );
+
+        orders.stream().flatMap(o -> o.getItems().stream()).forEach(System.out::println);
 
         Map<Integer, Item> totalCostPerOrder = orders.stream()
                 .collect(Collectors.toMap(
