@@ -1,4 +1,16 @@
 **REDIS**
+
+**REDIS IS SINGLE THREADED FOR  USER OPERATION.**
+
+*********
+SINGLE THREADED vs MULTI THREADED
+- SINGLE Threaded is preferred when the operations are CPU intensive, even if we use multiple threads, CPU capacity is the same. context switching will consume cpu cycles and operations get slower when compared to single thread executing
+- If the operations are IO intensive, multithreading env will be performant, because when the thread is waiting for a IO operation, it does not consume CPU cycles. hence other threads can utilize the CPU during that time
+- if Single, no hassle of resource sharing, hence no locking
+*********
+
+As Redis writes the data in memory and there are no IO operations , Redis decided with single thread
+
 Key - Value(many structures)
     - Cant have relations between entries(keys), as its majorly key value
 - cache
@@ -126,21 +138,77 @@ PERSISTENCE OR STOP AUTO RESTART
   - Hash (key value)
   - Stream -
 
+REDIS - 2
+-  Redis also gives us transactions
+- *MULTI*  
+  - SET
+  - GET
+  - ADD
+- *EXEC* 
+
+- The commands are not executed but are queued until *EXEC* is called.
+- The commands will be executed sequentially
+- Util these commands are executed no other command will be executed
+- And individual and all together as well will be *ATOMIC*
+- Other commands will be blocked from EXEC call and not from MULTI call
+- *ISOLATION* is also given, as no other commands will be executed after the EXEC cmd
+- NOT DURABLE and NOT CONSISTENCY - not well-defined for REDIS 
+
+- How does transaction work with persistence? AOF ?
+  - What if first few cmds got executed and written to AOF and 3rd cmd failed. How do you remove the AOF ? its read only file.
+    - REDIS writes into AOF only after it has executed all the commands
+
+- **REDIS IS SINGLE THREADED FOR  USER OPERATION.** For its operations it might create multiple threads internally.
+
+**REDIS SHARDING**
+- Using single machine RAM would limit storage capabilities. hence cluster of machine serving as Redis server
+- Redis also uses something similar to Consistence Hashing called HASH SLOT to decide which key into what cluster.
+
+![Screenshot 2024-08-20 at 9.35.43 PM.png](images%2FScreenshot%202024-08-20%20at%209.35.43%E2%80%AFPM.png)
+
+***HASH SLOT***
+- Redis has fixed number of hash slot - 2^14 = 16384
+- Redis by default has 16384 slots
+- The key of the entry will be hashed and % 16384 will be done
+- The key will be present hash slots from 0 to 16383
+
+- If we one machines these slots will be part of 1 machines
+- If we have two machines, will slot will be split into 2machines and so on.
+
+- There are queries which involve single key and multiple keys as well.
+- Redis client is aware that what shard to call to get the key
+- Intershard queries are possible when executing queries which involve multiple keys
+- ***REDIS CLUSTER ONLY ALLOWS TO HAVE INTRASHARD QUERIES BY DEFAULT***
+
+- ![Screenshot 2024-08-20 at 9.47.44 PM.png](images%2FScreenshot%202024-08-20%20at%209.47.44%E2%80%AFPM.png)
+
+- If we have a use case where we need to perform operations on multiple keys, we should have all those keys on one single shard
+![Screenshot 2024-08-20 at 10.16.18 PM.png](images%2FScreenshot%202024-08-20%20at%2010.16.18%E2%80%AFPM.png)
+if we have key such as the above
+All iiitd students in one single shard
+
+****WE can use REDIS TAGS****
+We can inform Redis which part of keys to considered for hashing
+![Screenshot 2024-08-20 at 10.18.14 PM.png](images%2FScreenshot%202024-08-20%20at%2010.18.14%E2%80%AFPM.png)
 
 
 
+![Screenshot 2024-08-20 at 10.22.22 PM.png](images%2FScreenshot%202024-08-20%20at%2010.22.22%E2%80%AFPM.png)
 
+![Screenshot 2024-08-20 at 10.58.28 PM.png](images%2FScreenshot%202024-08-20%20at%2010.58.28%E2%80%AFPM.png)
 
+High Consistency, lower Availability
+![Screenshot 2024-08-20 at 11.04.03 PM.png](images%2FScreenshot%202024-08-20%20at%2011.04.03%E2%80%AFPM.png)
 
+Async replication - lesser Consistency, higher Availability with Async replication. We might miss some writes on Master if it goes down before sending it to replicas
+![Screenshot 2024-08-20 at 11.04.26 PM.png](images%2FScreenshot%202024-08-20%20at%2011.04.26%E2%80%AFPM.png)
 
+SYNC Replication , both consistency and Availability?? Performance will be low 
+CAP Theorem breached?? 
+- if the slave S1 is down, Master M1 will not be able to serve the requests as it has to do sync update to its replica, hence the M1 is not available, **AVAILABILITY TAKES A HIT**
+![Screenshot 2024-08-20 at 11.02.54 PM.png](images%2FScreenshot%202024-08-20%20at%2011.02.54%E2%80%AFPM.png)
 
-
-
-
-
-
-
-
+*WAIT* command can be used 
 
 
 
